@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+<nav th:replace="layout :: header"></nav>
+
+<div class="container main-content list">
+    <div th:if="${success}"
+         class="row alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert"
+                aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+        <span th:text="${success}"></span>
+    </div>
+    <div class="row" style="margin-top: 65px;">
+        <a th:href="@{/employee/create}" class="btn btn-success pull-left">
+            <span class="glyphicon glyphicon-plus"></span> Add shoes
+        </a>
+        <form class="form-inline pull-right" action="#"
+              th:action="@{/shoes-management/search}" method="GET">
+            <div class="form-group">
+                <input type="text" class="form-control" name="searchInfo" placeholder="Type shoes name..." />
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+    <th:block th:if="${#lists.isEmpty(shoesResponseModels)}">
+        <h3>No shoes</h3>
+    </th:block>
+
+    <th:block th:unless="${#lists.isEmpty(shoesResponseModels)}">
+        <div class="row" style="margin-top: 35px;">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Rating</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="shoesResponseModel,count : ${shoesResponseModels}">
+                	<td th:text="${count.count}"></td>
+                	<td><img th:src="${shoesResponseModel.imgPng}" th:alt="${shoesResponseModel.name}" width="40" height="40"></td>
+                    <td th:text="${shoesResponseModel.name}"></td>
+                    <td th:text="${shoesResponseModel.gender}"></td>
+                    <td th:text="${shoesResponseModel.price}"></td>
+                    <td th:text="${shoesResponseModel.description}"></td>
+                    <td th:text="${shoesResponseModel.rating}"></td>
+                    <td><a th:href="@{/employee/{id}/edit(id=${shoesResponseModel.id})}"><span
+                            class="glyphicon glyphicon-pencil"></span></a></td>
+                    <td><a th:href="@{/employee/{id}/delete(id=${shoesResponseModel.id})}"><span
+                            class="glyphicon glyphicon-trash"></span></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </th:block>
+</div>
+<!-- /.container -->
+
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

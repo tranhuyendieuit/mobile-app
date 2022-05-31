@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.chauthai.swipereveallayout.SwipeRevealLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:mode="same_level"
+    app:dragEdge="right"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- Your secondary layout here -->
+    <FrameLayout
+        android:id="@+id/mycart_delete"
+        android:layout_width="100dp"
+        android:layout_height="140dp">
+        <androidx.cardview.widget.CardView
+            android:layout_gravity="center"
+            app:cardCornerRadius="20dp"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageButton
+                style="?android:attr/borderlessButtonStyle"
+                android:src="@drawable/trash"
+                android:layout_gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="80dp"/>
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+
+    <!-- Your main layout here -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp">
+        <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="|"
+                        app:layout_constraintEnd_toStartOf="@+id/mycart_size"
+                        app:layout_constraintStart_toEndOf="@+id/mycart_amount"
+                        app:layout_constraintTop_toTopOf="@+id/mycart_size" />
+
+                    <TextView
+                        android:id="@+id/mycart_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:fontFamily="@font/segoesemibold"
+                        android:text="Nike Shoes Max Air"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.064"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/mycart_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="44dp"
+                        android:fontFamily="@font/segoebold"
+                        android:text="200.00"
+                        android:textColor="#000000"
+                        android:textSize="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/textView10"
+                        app:layout_constraintStart_toEndOf="@+id/textView9" />
+
+                    <TextView
+                        android:id="@+id/mycart_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/segoebold"
+                        android:text="1X"
+                        app:layout_constraintEnd_toStartOf="@+id/textView11"
+                        app:layout_constraintStart_toEndOf="@+id/textView10"
+                        app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+                    <TextView
+                        android:id="@+id/mycart_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="44dp"
+                        android:fontFamily="@font/segoebold"
+                        android:text="S14"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+                        app:layout_constraintStart_toEndOf="@+id/mycart_amount"
+                        app:layout_constraintTop_toBottomOf="@+id/mycart_name" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="172dp"
+                        android:layout_height="124dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/small_shoe4" />
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="@font/segoebold"
+                        android:text="$"
+                        android:textColor="#EF0202"
+                        android:textSize="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/mycart_price"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.594" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="|"
+                        app:layout_constraintEnd_toStartOf="@+id/mycart_amount"
+                        app:layout_constraintStart_toEndOf="@+id/mycart_price"
+                        app:layout_constraintTop_toTopOf="@+id/mycart_amount" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </FrameLayout>
+</com.chauthai.swipereveallayout.SwipeRevealLayout>
